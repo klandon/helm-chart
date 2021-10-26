@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Values.name }}-pv
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: {{ .Values.storage_size }}
+  claimRef:
+    name: {{ .Values.name }}-pvc
+    namespace: {{ .Values.namespace}}
+  hostPath:
+    path: {{ .Values.host_path }}
+    type: ""
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem

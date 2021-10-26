@@ -1,0 +1,5 @@
+namespace: elastic
+name: elastic-master
+acces_mode: ReadWriteOnce
+host_path: /opt/persisted_data/elastic
+storage_size: 100Gi
