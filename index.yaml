@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  local-host-pv:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2021-10-27T09:20:44.820892-04:00"
+    description: A Helm chart for Kubernetes host to create a localized volume
+    digest: 0f764b765329466c7692c2dbb5e2da919ee245b9d6f575536767a08a468fb835
+    name: local-host-pv
+    type: application
+    urls:
+    - https://klandon.github.io/helm-chart/local-host-pv-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-10-27T09:20:44.811767-04:00"
