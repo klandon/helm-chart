@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.name }}-pv
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   capacity:
     storage: {{ .Values.storage_size }}
   claimRef:
