@@ -1,0 +1,5 @@
+namespace: plex
+name: plex-data
+access_mode: ReadWriteOnce
+storage_size: 100Gi
+storage_claas: smb

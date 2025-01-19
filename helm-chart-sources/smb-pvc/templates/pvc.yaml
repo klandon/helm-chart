@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.name }}-pvc
+  namespace: {{ .Values.namespace }}
+spec:
+  accessModes:
+    - {{ .Values.acces_mode}}
+  storageClassName: ""
+  resources:
+    requests:
+      storage: {{ .Values.storage_size }}
+  volumeMode: Filesystem
+  volumeName: {{.Values.name}}-pv
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ .Values.name }}-pvc
+  namespace: {{ .Values.namespace }}
+spec:
+  accessModes:
+    - {{ .Values.access_mode}}
+  resources:
+    requests:
+      storage: {{ .Values.storage_size }}
+  volumeName: {{ .Values.name}}-pv
+  storageClassName: {{ .Values.storage_claas }}
