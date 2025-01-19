@@ -1,0 +1,10 @@
+namespace: plex
+name: plex-data
+access_mode: ReadWriteOnce
+storage_size: 100Gi
+storage_claas: smb
+persistent_policy: Retain
+# make sure this value is unique for every share in the cluster
+# format: {smb-server-address}#{sub-dir-name}#{.Values.name}
+volume_handle: //172.16.0.10/k8s
+creds:
