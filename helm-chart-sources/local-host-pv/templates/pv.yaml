@@ -7,9 +7,6 @@ spec:
     - ReadWriteMany
   capacity:
     storage: {{ .Values.storage_size }}
-  claimRef:
-    name: {{ .Values.name }}-pvc
-    namespace: {{ .Values.namespace}}
   hostPath:
     path: {{ .Values.host_path }}
     type: ""
