@@ -3,7 +3,17 @@ entries:
   local-host-pv:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-12-05T13:19:08.427535-05:00"
+    created: "2025-12-05T14:23:42.126302-05:00"
+    description: A Helm chart for Kubernetes host to create a localized volume
+    digest: 28812385f47ae968628938f26b8627aab27e2707e9e489e79bb35d2e6af9c2ec
+    name: local-host-pv
+    type: application
+    urls:
+    - package/local-host-pv-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2025-12-05T14:23:42.126165-05:00"
     description: A Helm chart for Kubernetes host to create a localized volume
     digest: 8c89bc16603e7a307a85459958e8587e05527f09736f28517ca71d428228e4fb
     name: local-host-pv
@@ -14,7 +24,7 @@ entries:
   smb-pvc:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-12-05T13:19:08.428155-05:00"
+    created: "2025-12-05T14:23:42.127806-05:00"
     description: A Helm chart for Kubernetes host to create a smb pvc using storage
       class
     digest: 866a876452b75272b0d4b2cd1de677afceeef1a9bbbb63d38c18313c8bc8053b
@@ -25,7 +35,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-12-05T13:19:08.427801-05:00"
+    created: "2025-12-05T14:23:42.126592-05:00"
     description: A Helm chart for Kubernetes host to create a smb pvc using storage
       class
     digest: fc30da7e31a133c353835113a95f8ffeba983b381aa4f0d2c51986b4a4cd9812
@@ -34,4 +44,4 @@ entries:
     urls:
     - package/smb-pvc-0.1.0.tgz
     version: 0.1.0
-generated: "2025-12-05T13:19:08.427179-05:00"
+generated: "2025-12-05T14:23:42.125694-05:00"
