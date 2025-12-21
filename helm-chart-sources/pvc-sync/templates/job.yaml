@@ -19,12 +19,12 @@ spec:
               - |
                 apk add --no-cache rsync
                 echo "Starting rsync..."
+                echo "Listing source directories..."
                 ls -la /mnt/source
+                echo "Listing destination directories..."
                 ls -la /mnt/destination
-                rsync {{ .Values.sync.options }} \
-                  {{- if .Values.sync.dryRun }} --dry-run {{- end }} \
-                  {{- if .Values.sync.showProgress }} --progress --info=progress2 --partial {{- end }} \
-                  /mnt/source/ /mnt/destination/
+                echo "Starting sync..."
+                rsync {{ .Values.sync.options }} --progress --info=progress2 --partial /mnt/source/ /mnt/destination/
                 echo "Sync completed."
             volumeMounts:
             - name: source-vol
@@ -58,10 +58,12 @@ spec:
           - |
             apk add --no-cache rsync
             echo "Starting rsync..."
-            rsync {{ .Values.sync.options }} \
-              {{- if .Values.sync.dryRun }} --dry-run {{- end }} \
-              {{- if .Values.sync.showProgress }} --progress {{- end }} \
-              /mnt/source/ /mnt/destination/
+            echo "Listing source directories..."
+            ls -la /mnt/source
+            echo "Listing destination directories..."
+            ls -la /mnt/destination
+            echo "Starting sync..."
+            rsync {{ .Values.sync.options }} --progress --info=progress2 --partial /mnt/source/ /mnt/destination/
             echo "Sync completed."
         volumeMounts:
         - name: source-vol

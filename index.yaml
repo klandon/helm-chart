@@ -3,7 +3,7 @@ entries:
   local-host-pv:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-12-20T19:30:37.950383-05:00"
+    created: "2025-12-20T19:35:27.056424-05:00"
     description: A Helm chart for Kubernetes host to create a localized volume
     digest: 1c3d91ca98894815c7d4ddf5e18f63c816e1ee0942c822a19fb13f7115775822
     name: local-host-pv
@@ -13,7 +13,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-12-20T19:30:37.949942-05:00"
+    created: "2025-12-20T19:35:27.056025-05:00"
     description: A Helm chart for Kubernetes host to create a localized volume
     digest: 28812385f47ae968628938f26b8627aab27e2707e9e489e79bb35d2e6af9c2ec
     name: local-host-pv
@@ -23,7 +23,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-12-20T19:30:37.949501-05:00"
+    created: "2025-12-20T19:35:27.055352-05:00"
     description: A Helm chart for Kubernetes host to create a localized volume
     digest: 8c89bc16603e7a307a85459958e8587e05527f09736f28517ca71d428228e4fb
     name: local-host-pv
@@ -34,7 +34,16 @@ entries:
   pvc-sync:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-12-20T19:30:37.950513-05:00"
+    created: "2025-12-20T19:35:27.056871-05:00"
+    description: A Helm chart to sync two PVCs using rsync
+    digest: fbedbbea699ec467cae65f320aad837070966d602bf187720dd7da4b6b632049
+    name: pvc-sync
+    urls:
+    - package/pvc-sync-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-12-20T19:35:27.056761-05:00"
     description: A Helm chart to sync two PVCs using rsync
     digest: 7f113921bc113e20a757f54bdcba47e54f972fc9595cebce265877be881423c8
     name: pvc-sync
@@ -44,7 +53,7 @@ entries:
   smb-pvc:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-12-20T19:30:37.951129-05:00"
+    created: "2025-12-20T19:35:27.057475-05:00"
     description: A Helm chart for Kubernetes host to create a smb pvc using storage
       class
     digest: 866a876452b75272b0d4b2cd1de677afceeef1a9bbbb63d38c18313c8bc8053b
@@ -55,7 +64,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2025-12-20T19:30:37.950821-05:00"
+    created: "2025-12-20T19:35:27.057143-05:00"
     description: A Helm chart for Kubernetes host to create a smb pvc using storage
       class
     digest: fc30da7e31a133c353835113a95f8ffeba983b381aa4f0d2c51986b4a4cd9812
@@ -64,4 +73,4 @@ entries:
     urls:
     - package/smb-pvc-0.1.0.tgz
     version: 0.1.0
-generated: "2025-12-20T19:30:37.949015-05:00"
+generated: "2025-12-20T19:35:27.054923-05:00"
