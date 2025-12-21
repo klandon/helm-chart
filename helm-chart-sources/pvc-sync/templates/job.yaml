@@ -1,0 +1,80 @@
+{{- if .Values.sync.schedule -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "pvc-sync.fullname" . }}
+  labels:
+    {{- include "pvc-sync.labels" . | nindent 4 }}
+spec:
+  schedule: {{ .Values.sync.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: sync-container
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            command: ["/bin/sh", "-c"]
+            args:
+              - |
+                apk add --no-cache rsync
+                echo "Starting rsync..."
+                ls -la /mnt/source
+                ls -la /mnt/destination
+                rsync {{ .Values.sync.options }} \
+                  {{- if .Values.sync.dryRun }} --dry-run {{- end }} \
+                  {{- if .Values.sync.showProgress }} --progress --info=progress2 --partial {{- end }} \
+                  /mnt/source/ /mnt/destination/
+                echo "Sync completed."
+            volumeMounts:
+            - name: source-vol
+              mountPath: /mnt/source
+              readOnly: true
+            - name: destination-vol
+              mountPath: /mnt/destination
+          restartPolicy: OnFailure
+          volumes:
+          - name: source-vol
+            persistentVolumeClaim:
+              claimName: {{ .Values.sync.sourcePvcName }}
+          - name: destination-vol
+            persistentVolumeClaim:
+              claimName: {{ .Values.sync.destinationPvcName }}
+{{- else -}}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "pvc-sync.fullname" . }}
+  labels:
+    {{- include "pvc-sync.labels" . | nindent 4 }}
+spec:
+  template:
+    spec:
+      containers:
+      - name: sync-container
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            apk add --no-cache rsync
+            echo "Starting rsync..."
+            rsync {{ .Values.sync.options }} \
+              {{- if .Values.sync.dryRun }} --dry-run {{- end }} \
+              {{- if .Values.sync.showProgress }} --progress {{- end }} \
+              /mnt/source/ /mnt/destination/
+            echo "Sync completed."
+        volumeMounts:
+        - name: source-vol
+          mountPath: /mnt/source
+          readOnly: true
+        - name: destination-vol
+          mountPath: /mnt/destination
+      restartPolicy: OnFailure
+      volumes:
+      - name: source-vol
+        persistentVolumeClaim:
+          claimName: {{ .Values.sync.sourcePvcName }}
+      - name: destination-vol
+        persistentVolumeClaim:
+          claimName: {{ .Values.sync.destinationPvcName }}
+{{- end -}}

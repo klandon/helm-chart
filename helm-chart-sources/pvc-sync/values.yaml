@@ -1,0 +1,15 @@
+image:
+  repository: alpine
+  tag: "latest"
+
+sync:
+  sourcePvcName: "source-pvc"
+  destinationPvcName: "destination-pvc"
+  sourcePvcName: "plex-data-pvc"
+  destinationPvcName: "plex-media-backup-pvc"
+  dryRun: true
+  showProgress: true
+  # Example: "0 2 * * *" for daily at 2am. Leave empty for a one-time Job.
+  schedule: ""
+  # Options for rsync (e.g., -a for archive, -v for verbose, --delete to remove files not in source)
+  options: "-avh"
